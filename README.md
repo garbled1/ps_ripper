@@ -1,6 +1,8 @@
 # ps_ripper
 Tools for ripping playstation games on linux
 
+psx_ripper.bash : For PS1 games
+
 This is very simple, run this script, place a game in the drive, it will rip it twice,
 once with subchannels, once without (some games need, some do not).  If the game has
 audio tracks, it makes a third pass and makes mp3's out of them.  No attempt is made

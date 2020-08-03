@@ -32,7 +32,13 @@ do
 	# now do something cool with python
 	DISCNAME=$(./get_ps2_name.py ${RIP_PATH}/ps2_temp_iso.iso)
 	# move the file to PLAYSTATION_2
-	mv ${RIP_PATH}/ps2_temp_iso.iso "${RIP_PATH}/PLAYSTATION_2/${DISCNAME}.iso"
+	if [ -f "${RIP_PATH}/PLAYSTATION_2/${DISCNAME}.iso" ]; then
+	    echo "File already exists, making copy"
+	    DS=$(date +%s)
+	    mv ${RIP_PATH}/ps2_temp_iso.iso "${RIP_PATH}/PLAYSTATION_2/${DISCNAME}_${DS}.iso"
+	else
+	    mv ${RIP_PATH}/ps2_temp_iso.iso "${RIP_PATH}/PLAYSTATION_2/${DISCNAME}.iso"
+	fi
 	echo "Finished ${DISCNAME}"
     fi
 
